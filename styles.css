@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1B5E3C;
+
+}
+nav img{
+    width: 300px;
+}
+nav a{
+    text-decoration: none;
+    margin: auto 10px;
+    color: white;
+    font-size: 20px;
+}
+.list{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+body{
+    background-color: #A09226;
+}
+p{
+    font-size: 20px;
+}
+.header{
+    color: #fffffffb;
+    text-align: center;
+    margin:40px;
+}
+.section{
+    background-color: #D9D9D9;
+    padding: 10px;
+    margin:  30px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.light-green-box{
+    padding:20px;
+    background-color: #90D198;
+
+}
+.dark-green-box{
+    color: white;
+    background-color: #1B5E3C;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+footer{
+    background-color: #1B5E3C;
+    font-size: large;
+    color: aliceblue;
+}
+footer a{
+    color: aliceblue;
+    text-decoration: none;
+    
+}
+.foot{
+    justify-content: space-evenly;
+    align-items: center;
+}
+.card{
+    padding: 30px;
+    width: 300px;
+    background-color: #D9D9D9;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.event-fontsize{
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+/*form*/
+
+
+/*tablet*/
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav img {
+        width: 200px;
+    }
+
+    .list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .flex-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        margin: 20px;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+/*phone*/
+@media (max-width: 600px) {
+    nav a {
+        font-size: 16px;
+    }
+
+    nav img {
+        width: 150px;
+    }
+
+    .header {
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .light-green-box,
+    .dark-green-box {
+        width: 100%;
+    }
+
+    footer .flex-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

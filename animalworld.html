@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zootopia</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <style>
+   .lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: black;
+    display: none;
+}
+
+.lightbox-content img {
+    width: 80%;
+    display: block;
+    margin: 50px auto;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox-close {
+    top: 10px;
+    right: 15px;
+}
+
+.lightbox-prev {
+    left: 10px;
+    top: 200px;
+}
+
+.lightbox-next {
+    right: 10px;
+    top: 200px;
+}
+
+.animal-gallery img {
+    width: 150px;
+    margin: 10px;
+    border: 2px solid green;
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <img src="images/logo.png">
+        </div>
+        <div class="list">
+            <a href="index.html">Home</a>
+            <a href="animalworld.html">Animal worlds</a>
+            <a href="restaurant.html">Resturaunt</a>
+            <a href="catalog.html">Catalog</a>
+            <a href="events.html">Events</a>
+            <a href="map.html">Map</a>
+            <a href="registration.html">Registration</a>
+            <a href="newsletter.html">Newsletter</a>
+        </div>
+    </nav>
+
+    <body>
+
+    <main>
+        <section class="section">
+        <h1 class="header" style="color: #1B5E3C;">Zootopia Catalog </h1></section> 
+        <p style="text-align: center; color: aliceblue;">Click any photo to enlarge and browse!</p>
+      </section>
+
+
+  
+        <h2>Animals:</h2>
+        <div class="animal-gallery">
+            <img src="images/lion2.jpg" alt="lion" data-group="animals" width="300px">
+            <img src="images/elephant2.jpg" alt="elephant" data-group="animals" width="300px">
+            <img src="images/giraffe2.jpg" alt="giraffe" data-group="animals" width="300px">
+        </div>
+
+    </main>
+
+    
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-prev" onclick="changeImage(-1)">❮</span>
+        <div class="lightbox-content"><img src="" alt=""></div>
+        <span class="lightbox-next" onclick="changeImage(1)">❯</span>
+    </div>
+
+    <script>
+        let currentGroup = [];
+        let currentIndex = 0;
+
+        document.querySelectorAll('.animal-gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                const group = img.getAttribute('data-group');
+                currentGroup = Array.from(document.querySelectorAll(`[data-group="${group}"]`));
+                currentIndex = currentGroup.indexOf(img);
+                showLightbox(currentGroup[currentIndex].src);
+            });
+        });
+
+        function showLightbox(src) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.querySelector('.lightbox-content img').src = src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+            document.querySelector('.lightbox-content img').src = currentGroup[currentIndex].src;
+        }
+    </script>
+
+ <footer>
+        <div class="flex-row foot">
+            <div><h2>Zootopia Gardens © 2026</h2></div>
+            <div>
+            <a href="#contact"> | Contact</a>
+            <a href="#hours">| Hours</a>
+            <a href="#contact">| Location</a>
+            </div>
+        </div>
+
+    </footer>
+    
+</body>
+</html>
